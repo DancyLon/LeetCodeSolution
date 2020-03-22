@@ -14,10 +14,6 @@ import java.util.*;
  *
  * 输入：target = 15
  * 输出：[[1,2,3,4,5],[4,5,6],[7,8]]
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * */
 public class ContinuousSequence {
     public static void main(String[] args) {
