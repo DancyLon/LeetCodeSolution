@@ -20,8 +20,8 @@ import java.util.Arrays;
  * */
 public class TwoSum_II {
     public static void main(String[] args) {
-        int[] numbers = new int[]{2, 7, 11, 15};
-        int target = 9;
+        int[] numbers = new int[]{3,2,4};
+        int target = 6;
         System.out.println(Arrays.toString(twoSum(numbers,target)));
     }
     //双指针
