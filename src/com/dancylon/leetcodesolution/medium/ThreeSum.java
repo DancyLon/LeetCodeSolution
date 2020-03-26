@@ -18,12 +18,48 @@ import java.util.*;
  * */
 public class ThreeSum {
     public static void main(String[] args) {
-        int[] arr = new int[]{-1,0,1,2,-1,-4};
-        List<List<Integer>> list = threeSum(arr);
+        int[] arr = new int[]{0,0,0};
+        List<List<Integer>> list = threeSum2(arr);
         for (List<Integer> ll:
              list) {
           System.out.println(Arrays.toString(ll.toArray(new Integer[ll.size()])));
         }
+    }
+
+    /*
+     * 同样是转变为两数之和问题，先从数组中拿一个数，
+     * 然后从剩下的数组中找到和为该数的相反数的一对数
+     * 用双指针法
+     * */
+    public static List<List<Integer>> threeSum2(int[] nums) {
+        if (nums == null || nums.length < 3)
+            return new ArrayList();
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
+        int i1,i2;
+        for (int i = 0; i < nums.length-2; i++) {
+            if (i > 0 && nums[i] == nums[i-1]) {
+                continue;
+            }else{
+                i1 = i+1;
+                i2 = nums.length-1;
+                while (i2 > i1) {
+                    if (nums[i1] + nums[i2] == 0 - nums[i]) {
+                        list.add(Arrays.asList(nums[i],nums[i1],nums[i2]));
+                        int k = 0;
+                        do{ k++; }
+                        while(i2 > i1 + k && nums[i1] == nums[i1+k]);
+                        i1 += k;
+                        i2--;
+                    } else if (nums[i1] + nums[i2] > 0 - nums[i]) {
+                        i2--;
+                    } else if (nums[i1] + nums[i2] < 0 - nums[i]) {
+                        i1++;
+                    }
+                }
+            }
+        }
+        return list;
     }
 
     /*
@@ -63,7 +99,7 @@ public class ThreeSum {
      * 由于 e*f 是肯定不等于 a*b的
      * 所以 [e,f,c]又是一个有效的组合
      * */
-    public static List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum1(int[] nums) {
         if (nums == null || nums.length < 3) {
             return new ArrayList();
         }
