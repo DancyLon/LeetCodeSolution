@@ -17,6 +17,9 @@ public class ReverseInteger {
     }
 
     //best
+    ///相当于移位操作，把每次的余数移到前边
+    ///十进制的位操作，只要乘以十就可以了
+    ///把余数加在个位，再乘以十，就实现了位操作
     public static int reverseInteger3(int x){
         long rev = 0;
         while (x != 0) {
